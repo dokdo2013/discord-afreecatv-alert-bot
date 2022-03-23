@@ -33,7 +33,7 @@ async def on_ready():
 
 @app.command()
 async def 도움말(ctx):
-    await ctx.send('준비 중입니다.')
+    await ctx.send('아프리카TV 생방송 알림봇입니다. (hami0825 전용)')
 
 @tasks.loop(seconds=20.0)
 async def loop():
