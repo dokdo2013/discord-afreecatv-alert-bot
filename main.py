@@ -35,7 +35,7 @@ async def on_ready():
 async def 도움말(ctx):
     await ctx.send('준비 중입니다.')
 
-@tasks.loop(minutes=1.0)
+@tasks.loop(seconds=20.0)
 async def loop():
     user_id = os.getenv('USER_ID')
     try:
