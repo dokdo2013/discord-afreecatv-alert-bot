@@ -56,8 +56,11 @@ async def loop():
             # Make Embed
             embed_title = api_data['user_data']['user_nick']
             embed_description = "{}님이 방송을 켰습니다!  https://play.afreecatv.com/{}/{}".format(api_data['user_data']['user_nick'], api_data['user_data']['user_id'], api_data['broadcast_data']['broad_no'])
+            embed_thumbnail = 'https:' + api_data['user_data']['profile_image']
+            embed_image = 'https://liveimg.afreecatv.com/h/' + str(api_data['broadcast_data']['broad_no']) + '.webp'
             embed_data = discord.Embed(title=embed_title, description=embed_description)
-            embed_data.set_thumbnail(url='https:' + api_data['user_data']['profile_image'])
+            embed_data.set_thumbnail(url=embed_thumbnail)
+            embed_data.set_image(url=embed_image)
 
             # Send Message
             channel = app.get_channel(int(os.getenv('CHANNEL')))
