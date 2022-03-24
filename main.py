@@ -64,6 +64,7 @@ async def loop():
 
             # Send Message
             channel = app.get_channel(int(os.getenv('CHANNEL')))
+            await channel.send('@everyone')
             await channel.send(embed=embed_data)
         else:
             logging.info(f'Already latest broadcast : {user_id}')
