@@ -16,6 +16,13 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
           
+    - name: Get Current Time
+      uses: josStorer/get-current-time@v2.0.0
+      id: current-time
+      with:
+        format: YYYYMMDDHHmmss
+        utcOffset: "+09:00"
+          
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -31,7 +38,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: hami0825
-        IMAGE_TAG: $(date +%s)
+        IMAGE_TAG: ${{ steps.current-time.outputs.formattedTime }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
