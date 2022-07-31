@@ -21,6 +21,7 @@ spec:
       containers:
       - name: hami0825
         image: 597014485214.dkr.ecr.ap-northeast-2.amazonaws.com/hami0825:latest
+        imagePullPolicy: Always
         resources:
           limits:
             cpu: "1"
