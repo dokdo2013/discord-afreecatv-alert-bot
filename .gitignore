@@ -1,4 +1,5 @@
 .env
 .idea/
+.venv/
 venv/
 afreecatv_alert_log.log
