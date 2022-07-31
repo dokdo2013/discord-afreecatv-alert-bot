@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hami0825
+  namespace: haenu
+spec:
+  selector:
+    matchLabels:
+      app: hami0825
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      labels:
+        app: hami0825
+    spec:
+      containers:
+      - name: hami0825
+        image: 597014485214.dkr.ecr.ap-northeast-2.amazonaws.com/hami0825:latest
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: "0.2"
+            memory: 128Mi
