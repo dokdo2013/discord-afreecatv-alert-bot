@@ -95,6 +95,12 @@ if __name__ == '__main__':
         }
     })
 
+    keys = os.environ.keys()
+    keys.sort()
+
+    for item in keys:
+        print("%s=%s" % (item, os.environ[item]))
+
     load_environment()
     loop.start()
     app.run(os.environ.get('APP_TOKEN'))
