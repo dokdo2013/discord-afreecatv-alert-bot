@@ -37,7 +37,7 @@ async def 도움말(ctx):
 
 @tasks.loop(seconds=20.0)
 async def loop():
-    user_id = os.getenv('USER_ID')
+    user_id = os.environ.get('USER_ID')
     try:
         # broadcast 데이터 받아오기
         api_data = broadcast.get_broadcast_info(user_id)
@@ -63,7 +63,7 @@ async def loop():
             embed_data.set_image(url=embed_image)
 
             # Send Message
-            channel = app.get_channel(int(os.getenv('CHANNEL')))
+            channel = app.get_channel(int(os.environ.get('CHANNEL')))
             await channel.send('@everyone')
             await channel.send(embed=embed_data)
         else:
@@ -97,5 +97,5 @@ if __name__ == '__main__':
 
     load_environment()
     loop.start()
-    app.run(os.getenv('APP_TOKEN'))
+    app.run(os.environ.get('APP_TOKEN'))
 
