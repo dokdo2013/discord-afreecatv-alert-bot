@@ -29,3 +29,6 @@ spec:
           requests:
             cpu: "0.2"
             memory: 128Mi
+        envFrom:
+          - secretRef:
+              name: hami0825
