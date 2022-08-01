@@ -29,6 +29,49 @@ spec:
           requests:
             cpu: "0.2"
             memory: 128Mi
-        envFrom:
-          - secretRef:
+        env:
+        - name: PY_ENVIRONMENT
+          valueFrom:
+            secretKeyRef:
               name: hami0825
+              key: PY_ENVIRONMENT
+        - name: CHANNEL
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: CHANNEL
+        - name: USER_ID
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: USER_ID
+        - name: APP_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: APP_TOKEN
+        - name: DB_HOSTNAME
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: DB_HOSTNAME
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: DB_PASSWORD
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: DB_DATABASE
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: hami0825
+              key: DB_PORT
