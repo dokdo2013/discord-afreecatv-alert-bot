@@ -1,6 +1,10 @@
 # discord-afreecatv-alert-bot
 디스코드 아프리카 알리미 봇 (아프리카tv 방송알림)
 
+2022.12.04 -> 신규 서비스로 개편되어 본 레포지토리는 아카이브 처리하겠습니다.
+- https://github.com/dokdo2013/afreecatv-discord
+- https://github.com/dokdo2013/afreecatv-discord-sender
+
 ## Infra
 ~~2022년 08월 03일 `EC2` -> `EKS` 이전~~ 다시 `EC2` 에서 운영
 
